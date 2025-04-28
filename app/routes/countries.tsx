@@ -13,9 +13,9 @@ export default function Countries({ loaderData }: Route.ComponentProps) {
   return (
     <div>
       <ul>
-        {loaderData.map((country, key) => (
+      {loaderData.map((country: any, key: number) => (
           <li key={key}>
-            <Link to="#">{country.name.common}</Link> {/* <-- added `to="#"` */}
+            <Link to="#">{country.name.official}</Link> {/* <-- added `to="#"` */}
           </li>
         ))}
       </ul>
