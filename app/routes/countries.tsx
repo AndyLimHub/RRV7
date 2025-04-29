@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom"; // <-- added import
+import { Link } from "react-router-dom";
 import type { Route } from "./+types/countries";
-import Country from "./country";
 
 export async function clientLoader() {
   const res = await fetch("https://restcountries.com/v3.1/all");
@@ -9,13 +8,18 @@ export async function clientLoader() {
 }
 
 export default function Countries({ loaderData }: Route.ComponentProps) {
-  console.log(loaderData);
   return (
     <div>
       <ul>
-      {loaderData.map((country: any, key: number) => (
+        {loaderData.map((country: any, key: number) => (
           <li key={key}>
-            <Link to="#">{country.name.official}</Link> {/* <-- added `to="#"` */}
+            <Link to={`/countries/${country.name.common}`}>
+              {country.name.common}
+            </Link>
+            <div>
+              Region: {country.region} | Population: {country.population} |
+              Area: {country.area} km²
+            </div>
           </li>
         ))}
       </ul>
