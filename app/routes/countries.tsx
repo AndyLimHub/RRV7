@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import type { Route } from "./+types/countries";
 import { useState } from "react";
 
@@ -22,7 +22,7 @@ export default function Countries({ loaderData }: Route.ComponentProps) {
   });
 
   return (
-    <div className="p-6">
+    <div className="p-6"> 
       <h2 className="text-2xl font-bold mb-6 text-gray-900">Countries</h2>
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
         <input
@@ -45,6 +45,8 @@ export default function Countries({ loaderData }: Route.ComponentProps) {
           <option value="oceania">Oceania</option>
         </select>
       </div>
+
+
 
       {filteredCountries.length === 0 ? (
         <div> No countries match your filters. </div>
